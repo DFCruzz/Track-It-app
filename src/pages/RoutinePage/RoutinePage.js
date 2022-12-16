@@ -1,7 +1,7 @@
 import Logo from "../../assets/Logo.png"
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import RoutineContainer from "./styles/RoutineContainer";
+import PageContainer from "../../components/PageContainer";
 import AddRoutines from "./styles/AddRoutines";
 import AddRoutineBox from "./styles/AddRoutineBox";
 import NoRoutinesWarning from "./styles/NoRoutinesWarning";
@@ -15,7 +15,7 @@ const RoutinePage = ({ }) => {
                 <p>TrackIt</p>
                 <img src={Logo} />
             </Header>
-            <RoutineContainer>
+            <PageContainer>
                 <AddRoutines>
                     <p>Meus Hábitos</p>
                     <div>+</div>
@@ -67,13 +67,15 @@ const RoutinePage = ({ }) => {
                 <NoRoutinesWarning>
                     <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
                 </NoRoutinesWarning>
-            </RoutineContainer>
+            </PageContainer>
             <Footer>
-                <p>Hábitos</p>
                 <div>
-                    Hoje
+                    <p>Hábitos</p>
+                    <div>
+                        Hoje
+                    </div>
+                    <p>Histórico</p>
                 </div>
-                <p>Histórico</p>
             </Footer>
         </>
     )
