@@ -42,14 +42,14 @@ const AddRoutineBox = styled.form`
             width: 30px;
             height: 30px;
             background: #FFFFFF;
-            border: 2px solid #D5D5D5;
+            border: 2px solid #DBDBDB;
             border-radius: 5px;
             margin-right: 4px;
             margin-top: 12px;
             color: #D4D4D4;
 
             &.selected {
-                background-color: #D4D4D4;
+                background-color: #CFCFCF;
                 color: #FFFFFF;
             }
         }

@@ -120,7 +120,7 @@ const RoutinePage = ({ }) => {
                     <div data-test="habit-create-btn" onClick={() => setShowBox(true)}>+</div>
                 </AddRoutines>
                 <AddRoutineBox data-test="habit-create-container" onSubmit={submitRoutine} className={showBox || routineList.length == 0 ? null : "hidden"}>
-                    <input data-test="habit-name-input" type="text" placeholder="nome do hábito" value={name} onChange={e => setName(e.target.value)} disabled={isLoading} />
+                    <input data-test="habit-name-input" type="text" placeholder="nome do hábito" value={name} onChange={e => setName(e.target.value)} disabled={isLoading} required />
                     <div className="days">
                         {dayArr.map((a, index) =>
                             <div data-test="habit-day" key={index} onClick={() => selectDays(index)} className={selectedDays.includes(index) ? "selected" : null} disabled={isLoading}>{a}</div>
