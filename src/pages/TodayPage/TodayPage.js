@@ -88,7 +88,7 @@ const TodayPage = ({ }) => {
                     </div>
                 </RoutineBox>
 
-            </PageContainer>http://localhost:3000/hoje
+            </PageContainer>
             <Footer />
         </>
     )
