@@ -36,11 +36,11 @@ const SingleRoutine = styled.section`
             width: 30px;
             height: 30px;
             background: #FFFFFF;
-            border: 2px solid #DBDBDB;
+            border: 1px solid #CFCFCF;
             border-radius: 5px;
             margin-right: 4px;
             margin-top: 12px;
-            color: #D4D4D4;
+            color: #DBDBDB;
 
             &.selected {
                 background-color: #CFCFCF;
