@@ -1,23 +1,67 @@
-
 import Logo from "../../assets/Logo.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RegisterContainer from "./styles";
+import { useState } from "react";
+import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 
 const RegisterPage = ({}) => {
+    
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [photoURL, setPhotoURL] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
+    const navigate = useNavigate()
+
+    function signUpSubmit(event) {
+        event.preventDefault()
+
+        const request = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up", {
+            email: email,
+            name: name,
+            image: photoURL,
+            password: password,
+        })
+
+        setIsLoading(true)
+        
+        request.then((e) => {
+            console.log(e.data)
+            alert("Usuário cadastrado com sucesso!")
+            navigate("/")
+            setIsLoading(false)
+        })
+
+        request.catch(e => {
+
+            const error = e.response.status
+            if (error == 409) {
+                alert("Usuário Já Cadastrado")
+            }
+
+            else {
+                alert("Preencha todos os campos ou URL da imagem inválida")
+            }
+            setIsLoading(false)
+        })
+
+    }
+
     return (
         <>
             <RegisterContainer>
                 <img src={Logo} />
                 <h1>TrackIt</h1>
-                <form>
-                    <input type="email" placeholder="email" />
-                    <input type="password" placeholder="senha" />
-                    <input type="text" placeholder="nome" />
-                    <input type="text" placeholder="foto" />
-                    <button type="submit">Cadastrar</button>
+                <form onSubmit={signUpSubmit}>
+                    <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isLoading}/>
+                    <input type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
+                    <input type="text" placeholder="nome" value={name} onChange={e => setName(e.target.value)} disabled={isLoading}/>
+                    <input type="text" placeholder="foto" value={photoURL} onChange={e => setPhotoURL(e.target.value)} disabled={isLoading}/>
+                    <button type="submit" disabled={isLoading}>{isLoading ? <ThreeDots color="#FFFFFF" /> : "Cadastrar"}</button>
                 </form>
                 <Link to="/">
-                    <p>Não tem uma conta? Cadastre-se!</p>
+                    <p>Já tem uma conta? Faça o Login!</p>
                 </Link>
             </RegisterContainer>
         </>

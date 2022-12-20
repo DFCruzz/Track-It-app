@@ -43,6 +43,9 @@ const RegisterContainer = styled.div`
         }
 
         button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 80%;
             height: 45px;
             background-color: #52B6FF;
