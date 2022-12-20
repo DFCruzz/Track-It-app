@@ -27,9 +27,7 @@ const LoginPage = ({}) => {
 
         request.then((e) => {
             setIsLoading(false)
-            console.log(e.data)
-            console.log(e.data.token)
-            LogIn(e.data, e.data.token)            
+            LogIn(e.data, e.data.token)         
         })
 
         request.catch((e) => {
@@ -50,11 +48,11 @@ const LoginPage = ({}) => {
             <img src={Logo} />
             <h1>TrackIt</h1>
             <form onSubmit={LogInSubmit}>
-                <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isLoading} />
-                <input type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} disabled={isLoading} />
-                <button type="submit" disabled={isLoading}>{isLoading ? <ThreeDots color="#FFFFFF" /> : "Entrar"}</button>
+                <input data-test="email-input" type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isLoading} />
+                <input data-test="password-input" type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} disabled={isLoading} />
+                <button data-test="login-btn" type="submit" disabled={isLoading}>{isLoading ? <ThreeDots color="#FFFFFF" /> : "Entrar"}</button>
             </form>
-            <Link to="/cadastro">
+            <Link to="/cadastro" data-test="signup-link">
                 <p>Não tem uma conta? Cadastre-se!</p>
             </Link>
         </LoginContainer>

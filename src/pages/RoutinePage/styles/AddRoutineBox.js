@@ -11,6 +11,10 @@ const AddRoutineBox = styled.form`
     border-radius: 5px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 
+    &.hidden {
+        display: none;
+    }
+
 
     input {
         width: 85%;
@@ -43,6 +47,11 @@ const AddRoutineBox = styled.form`
             margin-right: 4px;
             margin-top: 12px;
             color: #D4D4D4;
+
+            &.selected {
+                background-color: #D4D4D4;
+                color: #FFFFFF;
+            }
         }
     }
 
@@ -75,8 +84,6 @@ const AddRoutineBox = styled.form`
             }
         }
     }
-
-
 `
 
 export default AddRoutineBox

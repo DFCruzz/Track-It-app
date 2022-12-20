@@ -4,6 +4,10 @@ const NoRoutinesWarning = styled.section`
     display: flex;
     width: 90%;
     margin-top: 32px;
+
+    &.hidden {
+        display: none;
+    }
     
     p {
         color: #666666;

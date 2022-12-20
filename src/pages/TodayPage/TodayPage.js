@@ -5,17 +5,56 @@ import PageContainer from "../../components/PageContainer";
 import Checkmark from "../../assets/Checkmark.png"
 import SubTitle from "./styles/SubTitle";
 import RoutineBox from "./styles/RoutineBox";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import dayjs from "dayjs";
+import { Link } from "react-router-dom";
 
 const TodayPage = ({ }) => {
+
+    const { token, user } = useContext(AuthContext)
+    const [month, setMonth] = useState(undefined)
+    const [day, setDay] = useState(undefined)
+    const [weekday, setWeekday] = useState(undefined)
+
+
+    const date = dayjs(new Date())
+
+    useEffect(() => {
+
+        if(date.day() == 0) {
+            setWeekday("Domingo")
+        }
+        else if(date.day() == 1) {
+            setWeekday("Segunda")
+        }
+        else if(date.day() == 2) {
+            setWeekday("Terça")
+        } 
+        else if(date.day() == 3) {
+            setWeekday("Quarta")
+        } 
+        else if(date.day() == 4) {
+            setWeekday("Quinta")
+        } 
+        else if(date.day() == 5) {
+            setWeekday("Sexta")
+        } 
+        else if(date.day() == 6) {
+            setWeekday("Sábado")
+        }
+        
+        setDay(date.date())
+        setMonth(date.month())
+    }, [date])
+
+
     return (
         <>
-            <Header>
-                <p>TrackIt</p>
-                <img src={Logo} />
-            </Header>
+            <Header />
             <PageContainer>
                 <SubTitle>
-                    <h2>Segunda, 17/05</h2>
+                    <h2 data-test="today">{weekday}, {day}/{month}</h2>
                     <h3>Nenhum hábito concluído ainda</h3>
                 </SubTitle>
                 <RoutineBox>
@@ -49,16 +88,8 @@ const TodayPage = ({ }) => {
                     </div>
                 </RoutineBox>
 
-            </PageContainer>
-            <Footer>
-                <div>
-                    <p>Hábitos</p>
-                    <div>
-                        Hoje
-                    </div>
-                    <p>Histórico</p>
-                </div>
-            </Footer>
+            </PageContainer>http://localhost:3000/hoje
+            <Footer />
         </>
     )
 }

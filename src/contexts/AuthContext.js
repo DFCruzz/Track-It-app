@@ -6,15 +6,16 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
-    const [token, setToken] = useState("")
-    const [user, setUser] = useState(null)
+    const [token, setToken] = useState(undefined)
+    const [user, setUser] = useState(undefined)
     const navigate = useNavigate()
 
     function LogIn (a, b) {
         setUser(a)
         setToken(b)
-
-        // navigate("/hoje")
+        console.log(a)
+        console.log(b)
+        navigate("/hoje")
     }
 
     return (

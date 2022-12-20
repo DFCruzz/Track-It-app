@@ -1,6 +1,22 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { AuthContext } from "../contexts/AuthContext";
 
-const Header = styled.header`
+
+
+const Header = () => {
+
+    const { user } = useContext(AuthContext)
+    return (
+        <HeaderContainer data-test="header">
+            <p>TrackIt</p>
+            <img src={user.image} />
+        </HeaderContainer>
+    )
+
+}
+
+const HeaderContainer = styled.header`
     width: 100%;
     height: 75px;
     display: flex;

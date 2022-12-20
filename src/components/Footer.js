@@ -1,6 +1,29 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Footer = styled.footer`
+const Footer = () => {
+
+    return (
+        <FooterContainer data-test="menu">
+            <div>
+                <Link data-test="habit-link" to="/habitos">
+                    <p>Hábitos</p>
+                </Link>
+                <Link data-test="today-link" to="/hoje">
+                    <div>
+                        Hoje
+                    </div>
+                </Link>
+                <Link data-test="history-link" to="/historico">
+                    <p>Histórico</p>
+                </Link>
+            </div>
+        </FooterContainer>
+    )
+
+}
+
+const FooterContainer = styled.footer`
     width: 100%;
     height: 70px;
     position: fixed;

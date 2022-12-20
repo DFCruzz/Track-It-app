@@ -3,15 +3,18 @@ import Logo from "../../assets/Logo.png"
 import PageContainer from "../../components/PageContainer";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 
 const HistoryPage = ({ }) => {
+
+    const { user } = useContext(AuthContext)
+
     return (
         <>
-            <Header>
-                <p>TrackIt</p>
-                <img src={Logo} />
-            </Header>
+            <Header />
             <PageContainer>
                 <SubTitle>
                     <h2>Histórico</h2>
@@ -20,15 +23,7 @@ const HistoryPage = ({ }) => {
                     <p>Em breve você poderá ver o histórico dos seus hábitos aqui!</p>
                 </HistoryWarning>
             </PageContainer>
-            <Footer>
-                <div>
-                    <p>Hábitos</p>
-                    <div>
-                        Hoje
-                    </div>
-                    <p>Histórico</p>
-                </div>
-            </Footer>
+            <Footer />
         </>
 
     )

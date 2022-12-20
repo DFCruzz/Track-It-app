@@ -41,6 +41,11 @@ const SingleRoutine = styled.section`
             margin-right: 4px;
             margin-top: 12px;
             color: #D4D4D4;
+
+            &.selected {
+                background-color: #D4D4D4;
+                color: #FFFFFF;
+            }
         }
     }
 `

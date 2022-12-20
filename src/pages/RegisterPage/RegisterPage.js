@@ -54,13 +54,13 @@ const RegisterPage = ({}) => {
                 <img src={Logo} />
                 <h1>TrackIt</h1>
                 <form onSubmit={signUpSubmit}>
-                    <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isLoading}/>
-                    <input type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
-                    <input type="text" placeholder="nome" value={name} onChange={e => setName(e.target.value)} disabled={isLoading}/>
-                    <input type="text" placeholder="foto" value={photoURL} onChange={e => setPhotoURL(e.target.value)} disabled={isLoading}/>
-                    <button type="submit" disabled={isLoading}>{isLoading ? <ThreeDots color="#FFFFFF" /> : "Cadastrar"}</button>
+                    <input data-test="email-input" type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isLoading}/>
+                    <input data-test="password-input" type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} disabled={isLoading}/>
+                    <input data-test="user-name-input" type="text" placeholder="nome" value={name} onChange={e => setName(e.target.value)} disabled={isLoading}/>
+                    <input data-test="user-image-input" type="text" placeholder="foto" value={photoURL} onChange={e => setPhotoURL(e.target.value)} disabled={isLoading}/>
+                    <button data-test="signup-btn" type="submit" disabled={isLoading}>{isLoading ? <ThreeDots color="#FFFFFF" /> : "Cadastrar"}</button>
                 </form>
-                <Link to="/">
+                <Link to="/" data-test="login-link">
                     <p>Já tem uma conta? Faça o Login!</p>
                 </Link>
             </RegisterContainer>
